@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adomas Valantinas — Planetary Scientist</title>
+  <meta name="description" content="Adomas Valantinas — Mars scientist, science communicator, radio host." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#faf7f4; --ink:#1a1410; --soft:#6a625b; --line:#ece5dd; --card:#fff;
+      --rust:#c8461d; --amber:#f0973a; --plum:#7a2e46;
+      --disp:"Outfit",system-ui,sans-serif; --sans:"Inter",system-ui,sans-serif;
+      --maxw:1080px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:5rem}
+    body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65;font-size:18px;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{color:var(--rust);text-decoration:none}a:hover{color:var(--plum)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+    h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+    h1{font-size:clamp(2.8rem,8vw,5.5rem);font-weight:800}
+    h2{font-size:clamp(1.9rem,4.5vw,2.8rem)}h3{font-size:1.2rem;font-weight:600}
+
+    .backbar{background:#fff;border-bottom:1px solid var(--line);font-size:.82rem}
+    .backbar .container{display:flex;justify-content:space-between;align-items:center;height:2.6rem;color:var(--soft)}
+
+    header.site{position:sticky;top:0;z-index:40;background:rgba(250,247,244,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:4.3rem}
+    .nav .name{font-family:var(--disp);font-weight:800;font-size:1.2rem}
+    .nav ul{display:flex;gap:1.5rem;list-style:none}
+    .nav a{color:var(--soft);font-size:.92rem;font-weight:500}.nav a:hover{color:var(--rust)}
+    @media(max-width:760px){.nav ul{display:none}}
+
+    /* Hero */
+    .hero{position:relative;border-radius:0 0 34px 34px;overflow:hidden;background:linear-gradient(135deg,#8a2d12 0%,var(--rust) 42%,var(--amber) 100%);color:#fff}
+    .hero::after{content:"";position:absolute;right:-8%;bottom:-30%;width:520px;height:520px;background:url('assets/mars.png') center/contain no-repeat;opacity:.9;filter:drop-shadow(0 0 60px rgba(0,0,0,.35));pointer-events:none}
+    .hero .container{position:relative;z-index:2;padding:clamp(3.5rem,9vw,6.5rem) 1.5rem}
+    .hero .pill{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);color:#fff;font-family:var(--disp);font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .9rem;border-radius:999px;margin-bottom:1.4rem;backdrop-filter:blur(4px)}
+    .hero h1{max-width:14ch}
+    .hero p.lede{font-size:1.25rem;max-width:40ch;margin:1.3rem 0 2rem;color:rgba(255,255,255,.92)}
+    .actions{display:flex;flex-wrap:wrap;gap:.8rem}
+    .btn{display:inline-block;padding:.8rem 1.6rem;border-radius:999px;font-family:var(--disp);font-weight:600;font-size:.95rem;transition:.18s;border:2px solid transparent}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-w{background:#fff;color:var(--rust)}.btn-w:hover{color:var(--plum)}
+    .btn-o{border-color:rgba(255,255,255,.6);color:#fff}.btn-o:hover{background:rgba(255,255,255,.14);color:#fff}
+
+    section{padding:clamp(3rem,7vw,5rem) 0}
+    .kick{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:var(--rust);margin-bottom:.8rem}
+    .prose{max-width:64ch;color:var(--soft)}.prose p{margin-bottom:1.05rem}.prose strong{color:var(--ink)}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.3rem}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.7rem;transition:.2s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 26px 50px -28px rgba(200,70,29,.45);border-color:transparent}
+    .card .dot{width:2.4rem;height:2.4rem;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;color:#fff;margin-bottom:1rem}
+    .card:nth-child(1) .dot{background:linear-gradient(135deg,var(--rust),var(--amber))}
+    .card:nth-child(2) .dot{background:linear-gradient(135deg,var(--plum),var(--rust))}
+    .card:nth-child(3) .dot{background:linear-gradient(135deg,#3a5a7a,var(--rust))}
+    .card p{color:var(--soft);font-size:.95rem;margin-top:.3rem}
+
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1rem}
+    .stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.4rem}
+    .stat .n{font-family:var(--disp);font-weight:800;font-size:2rem;background:linear-gradient(120deg,var(--rust),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .stat .l{color:var(--soft);font-size:.88rem}
+
+    .feature{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;background:linear-gradient(135deg,#1a1410,#3a1a10);color:#fff;border-radius:26px;padding:clamp(1.6rem,4vw,2.8rem)}
+    .feature img{border-radius:12px;width:100%;max-width:320px;margin:0 auto;box-shadow:0 24px 50px -24px rgba(0,0,0,.6)}
+    .feature .tag{display:inline-block;background:linear-gradient(120deg,var(--rust),var(--amber));color:#fff;font-family:var(--disp);font-weight:600;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;padding:.3rem .8rem;border-radius:999px;margin-bottom:.9rem}
+    .feature p{color:rgba(255,255,255,.85);margin-bottom:1.2rem}
+    @media(max-width:760px){.feature{grid-template-columns:1fr}}
+
+    .pubs{list-style:none}
+    .pubs li{display:flex;gap:1.2rem;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+    .pubs li:last-child{border:0}
+    .yr{flex:0 0 3rem;color:var(--rust);font-family:var(--disp);font-weight:600;font-size:.95rem;padding-top:.1rem}
+    .ptitle{font-family:var(--disp);font-weight:600;font-size:1.1rem;color:var(--ink)}.ptitle:hover{color:var(--rust)}
+    .pmeta{color:var(--soft);font-size:.9rem;margin-top:.15rem}
+    .badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:linear-gradient(120deg,var(--rust),var(--amber));border-radius:999px;padding:.1rem .5rem;margin-left:.4rem;vertical-align:middle}
+
+    .press{display:flex;flex-wrap:wrap;gap:.7rem}
+    .press span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45rem 1.05rem;color:var(--soft);font-size:.9rem;font-weight:500}
+
+    .cta-band{background:linear-gradient(135deg,var(--plum),var(--rust) 60%,var(--amber));border-radius:28px;color:#fff;padding:clamp(2.2rem,5vw,3.5rem);text-align:center}
+    .cta-band h2{margin-bottom:.7rem}
+    .cta-band p{color:rgba(255,255,255,.9);max-width:44ch;margin:0 auto 1.6rem}
+
+    footer{border-top:1px solid var(--line)}
+    footer p{text-align:center;color:var(--soft);font-size:.85rem;padding:2.2rem 1.5rem}
+  </style>
+</head>
+<body>
+  <div class="backbar"><div class="container"><span>Design 05 — Bold Modern</span><a href="index.html">← All versions</a></div></div>
+
+  <header class="site"><nav class="nav container">
+    <a href="#top" class="name">Valantinas</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav></header>
+
+  <main id="top">
+    <section class="hero" style="padding:0">
+      <div class="container">
+        <span class="pill">Planetary Scientist · Mars</span>
+        <h1>Adomas Valantinas</h1>
+        <p class="lede">Chasing ancient water, climate, and habitability across the Red Planet — from orbit to the lab to the field.</p>
+        <div class="actions">
+          <a class="btn btn-w" href="#research">Explore my work</a>
+          <a class="btn btn-o" href="assets/cv.pdf">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section id="about">
+        <p class="kick">About</p>
+        <h2 style="margin-bottom:1.2rem;max-width:18ch">Reading Mars for the story of its water.</h2>
+        <div class="prose">
+          <p>I'm a planetary scientist and SNSF <strong>Postdoc.Mobility</strong> Fellow at ETH Zurich, joining the University of Cambridge as an incoming Fellow of the <strong>Leverhulme Centre for Life in the Universe</strong>. My research reconstructs how Mars evolved — its aqueous alteration, iron-oxide mineralogy, and the habitability of ancient crust.</p>
+          <p>PhD from Bern; degrees from Copenhagen and Vilnius; a fellowship at Brown. I work with ESA's <strong>CaSSIS</strong>, NASA's <strong>HiRISE</strong>, and the <strong>Perseverance</strong> rover — and, off the clock, host radio shows mixing electronic music with planetary science.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="n">3×</div><div class="l">Nature-family papers</div></div>
+          <div class="stat"><div class="n">500k+</div><div class="l">public reach</div></div>
+          <div class="stat"><div class="n">3</div><div class="l">Mars missions</div></div>
+          <div class="stat"><div class="n">1</div><div class="l">journal cover</div></div>
+        </div>
+      </section>
+
+      <section id="research">
+        <p class="kick">Research</p>
+        <h2 style="margin-bottom:1.6rem">Three threads, one planet.</h2>
+        <div class="cards">
+          <article class="card"><div class="dot">01</div><h3>Water &amp; iron oxides</h3><p>Ancient climate written into Martian dust — including ferrihydrite that records cold, wet conditions on early Mars.</p></article>
+          <article class="card"><div class="dot">02</div><h3>Surface &amp; volatiles</h3><p>Transient frost on the Tharsis volcanoes, slope streaks, and seasonal change in high-resolution orbital colour.</p></article>
+          <article class="card"><div class="dot">03</div><h3>Habitability &amp; MSR</h3><p>Deep crust and impact history at Jezero crater rim, and the case for Mars Sample Return.</p></article>
+        </div>
+      </section>
+
+      <section id="featured">
+        <div class="feature">
+          <img src="assets/nature-cover.jpg" alt="Nature Geoscience July 2024 cover" />
+          <div>
+            <span class="tag">Nature Geoscience · Cover</span>
+            <h2 style="margin-bottom:.6rem;color:#fff">Water frost on Martian mountaintops</h2>
+            <p>My discovery of transient morning frost on the Tharsis volcanoes made the July 2024 cover of <em>Nature Geoscience</em> — reshaping the modern Martian water cycle and making headlines worldwide.</p>
+            <a class="btn btn-w" href="https://doi.org/10.1038/s41561-024-01457-7">Read the paper →</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <p class="kick">Publications</p>
+        <h2 style="margin-bottom:1.4rem">Selected work</h2>
+        <ol class="pubs">
+          <li><span class="yr">2025</span><div><a class="ptitle" href="https://doi.org/10.1038/s41467-025-56970-z">Detection of ferrihydrite in Martian red dust records ancient cold and wet conditions</a><p class="pmeta">Valantinas, A., Mustard, J., Chevrier, V., et al. — <em>Nature Communications</em>, 16, 1712.</p></div></li>
+          <li><span class="yr">2024</span><div><a class="ptitle" href="https://doi.org/10.1038/s41561-024-01457-7">Transient morning water frost on the Tharsis volcanoes of Mars <span class="badge">Cover</span></a><p class="pmeta">Valantinas, A., Thomas, N., Pommerol, A., et al. — <em>Nature Geoscience</em>, 17, 608–616.</p></div></li>
+          <li><span class="yr">2025</span><div><a class="ptitle" href="https://doi.org/10.22541/essoar.176235473.32635438/v1">Plutonic magmatism in the Noachian clay-bearing crust of Nili Fossae, Mars</a><p class="pmeta">Valantinas, A., Mustard, J., Tullo, A., Head, J. W. — <em>In review, EPSL</em>.</p></div></li>
+          <li><span class="yr">2020</span><div><a class="ptitle" href="https://doi.org/10.1130/G47202.1">The origin of neotectonics on the lunar nearside</a><p class="pmeta">Valantinas, A. &amp; Schultz, P. H. — <em>Geology</em>, 48, 649–653.</p></div></li>
+        </ol>
+        <p style="margin-top:1.4rem;font-weight:600"><a href="https://tinyurl.com/5n8f6pak">All publications on Google Scholar →</a></p>
+      </section>
+
+      <section id="press">
+        <p class="kick">In the Press</p>
+        <h2 style="margin-bottom:1.4rem">Mars, in the headlines.</h2>
+        <div class="press">
+          <span>Associated Press</span><span>CNN</span><span>BBC Global</span><span>The Guardian</span><span>New Scientist</span><span>USA Today</span><span>ABC Australia</span><span>The Planetary Society</span>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="cta-band">
+          <p class="kick" style="color:rgba(255,255,255,.85)">Contact</p>
+          <h2>Let's work together.</h2>
+          <p>Collaborations, student projects, or press — I'd love to hear from you.</p>
+          <a class="btn btn-w" href="mailto:adomas.valantinas@eaps.ethz.ch">adomas.valantinas@eaps.ethz.ch</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer><p>© 2026 Adomas Valantinas · Planetary scientist · <a href="https://tinyurl.com/5n8f6pak">Scholar</a> · <a href="https://orcid.org/">ORCID</a></p></footer>
+</body>
+</html>
