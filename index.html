@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design versions — Dr. Adomas Valantinas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: #0d0f14; color: #e9e6df; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 4rem; }
+    header { text-align: center; margin-bottom: 3rem; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; color: #d98a5b; font-weight: 600; }
+    h1 { font-family: "Newsreader", serif; font-weight: 500; font-size: clamp(1.9rem, 5vw, 3rem); margin: .5rem 0; letter-spacing: -.01em; }
+    header p { color: #9a978f; max-width: 55ch; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .card {
+      display: block; text-decoration: none; color: inherit;
+      background: #16191f; border: 1px solid #262a33; border-radius: 14px;
+      overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: #d98a5b; box-shadow: 0 20px 40px -20px rgba(217,138,91,.35); }
+    .thumb { height: 150px; display: flex; align-items: center; justify-content: center; font-family: "Newsreader", serif; font-size: 1.5rem; position: relative; overflow: hidden; }
+    .t1 { background: linear-gradient(135deg, #f7f6f3, #e7e3db); color: #1a1c20; }
+    .t2 { background: radial-gradient(circle at 70% 40%, #3a1e12, #0a0a0f); color: #f0c9a8; }
+    .t3 { background: #efe9dd; color: #14110c; letter-spacing: -.02em; font-weight: 500; }
+    .t4 { background: linear-gradient(120deg, #1a1410, #40140a); color: #f5d9c4; }
+    .t5 { background: linear-gradient(120deg, #b4441e, #e8913f); color: #fff; font-weight: 600; }
+    .card-body { padding: 1.1rem 1.25rem 1.35rem; }
+    .card-body h2 { font-family: "Newsreader", serif; font-weight: 500; font-size: 1.25rem; margin-bottom: .3rem; }
+    .card-body .num { color: #d98a5b; font-variant-numeric: tabular-nums; font-size: .8rem; font-weight: 600; letter-spacing: .05em; }
+    .card-body p { color: #9a978f; font-size: .9rem; }
+    .note { margin-top: 3rem; padding: 1.25rem 1.5rem; background: #16191f; border: 1px solid #262a33; border-radius: 12px; color: #9a978f; font-size: .9rem; }
+    .note strong { color: #e9e6df; }
+    .assets a { color: #d98a5b; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Design preview · private</p>
+      <h1>Five directions for your website</h1>
+      <p>Click any design to open the full page. Everything runs locally on your computer — nothing is public yet. Come back here (browser Back button) to try the next one.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="v1.html">
+        <div class="thumb t1">Aa</div>
+        <div class="card-body"><span class="num">01</span><h2>Minimal Light</h2><p>Clean, airy, elegant. The timeless academic classic.</p></div>
+      </a>
+      <a class="card" href="v2.html">
+        <div class="thumb t2">Aa</div>
+        <div class="card-body"><span class="num">02</span><h2>Cosmic Dark</h2><p>Near-black with your Mars disk as a dramatic hero.</p></div>
+      </a>
+      <a class="card" href="v3.html">
+        <div class="thumb t3">studio</div>
+        <div class="card-body"><span class="num">03</span><h2>Studio</h2><p>Taramelli-inspired: huge type, gallery-index layout.</p></div>
+      </a>
+      <a class="card" href="v4.html">
+        <div class="thumb t4">Aa</div>
+        <div class="card-body"><span class="num">04</span><h2>Feature / Press</h2><p>Magazine style, led by your Nature Geoscience cover.</p></div>
+      </a>
+      <a class="card" href="v5.html">
+        <div class="thumb t5">Aa</div>
+        <div class="card-body"><span class="num">05</span><h2>Bold Modern</h2><p>Vibrant Mars-rust gradients, big type, energetic.</p></div>
+      </a>
+    </div>
+
+    <div class="note">
+      <p><strong>All content is real (pulled from your CV)</strong> but still a draft — tell me what to fix. One thing to confirm: I've written your Cambridge role as <em>“Incoming LCLU Fellow — Leverhulme Centre for Life in the Universe.”</em> Correct that if LCLU means something else.</p>
+      <p class="assets" style="margin-top:.6rem">Assets in use: <a href="assets/mars.png">Mars image</a> · <a href="assets/nature-cover.jpg">Nature cover</a> · <a href="assets/cv.pdf">CV (PDF)</a></p>
+    </div>
+  </div>
+</body>
+</html>

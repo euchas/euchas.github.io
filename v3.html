@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adomas Valantinas — Studio</title>
+  <meta name="description" content="Adomas Valantinas — planetary scientist. Mars, water, and the search for ancient habitability." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --paper:#f3efe6; --ink:#16130d; --soft:#6b6559; --line:#d8d1c2; --accent:#bb4a1f;
+      --disp:"Syne",system-ui,sans-serif; --mono:"Space Mono",ui-monospace,monospace;
+      --maxw:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:4rem}
+    body{font-family:var(--mono);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{color:var(--ink);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+    h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:.98;letter-spacing:-.02em}
+
+    .backbar{border-bottom:1px solid var(--line);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}
+    .backbar .container{display:flex;justify-content:space-between;align-items:center;height:2.5rem;color:var(--soft)}
+    .backbar a{color:var(--accent)}
+
+    .top{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 0}
+    .top .mark{font-family:var(--disp);font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+    .top nav{display:flex;gap:1.4rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em}
+    .top nav a{color:var(--soft)}.top nav a:hover{color:var(--accent)}
+    @media(max-width:720px){.top nav{display:none}}
+
+    /* Hero — oversized editorial statement */
+    .hero{padding:clamp(2rem,6vw,4.5rem) 0 clamp(2.5rem,7vw,5rem);border-top:1px solid var(--line)}
+    .hero .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--soft);margin-bottom:1.6rem}
+    .hero h1{font-size:clamp(3.2rem,13vw,10rem);text-transform:lowercase}
+    .hero h1 em{font-style:normal;color:var(--accent)}
+    .hero .sub{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+    .hero .sub p{max-width:46ch;font-size:.95rem;color:var(--soft)}
+    .hero .sub p strong{color:var(--ink);font-weight:400}
+    .hero .cta{display:flex;flex-direction:column;gap:.7rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+    .hero .cta a{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:.5rem}
+    .hero .cta a:hover{color:var(--accent);border-color:var(--accent)}
+    .hero .cta a span{color:var(--accent)}
+    @media(max-width:720px){.hero .sub{grid-template-columns:1fr}}
+
+    section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
+    .lbl{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:1.6rem;display:block}
+    .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(1.5rem,5vw,4rem)}
+    .about-grid h2{font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .about-grid p{margin-bottom:1rem;color:#3f3a30;font-size:.98rem}
+    @media(max-width:720px){.about-grid{grid-template-columns:1fr;gap:1.2rem}}
+
+    /* Index list — the gallery-catalog device */
+    .index a.row{display:grid;grid-template-columns:3rem 1fr auto;gap:1rem;align-items:baseline;padding:1.3rem 0;border-top:1px solid var(--line);transition:.15s}
+    .index a.row:hover{padding-left:.6rem;color:var(--accent)}
+    .index a.row:last-child{border-bottom:1px solid var(--line)}
+    .index .n{font-size:.8rem;color:var(--soft)}
+    .index .ti{font-family:var(--disp);font-weight:600;font-size:clamp(1.1rem,2.4vw,1.7rem);line-height:1.1;text-transform:lowercase}
+    .index .rt{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
+    .index a.row:hover .rt{color:var(--accent)}
+
+    /* Feature cover */
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+    .feature img{border:1px solid var(--line);width:100%;max-width:360px}
+    .feature h2{font-size:clamp(1.8rem,4vw,2.8rem);text-transform:lowercase;margin:.6rem 0 1rem}
+    .feature p{color:#3f3a30;font-size:.98rem;margin-bottom:1.2rem;max-width:44ch}
+    .feature .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+    .feature .go{display:inline-block;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--accent);color:var(--accent);padding-bottom:.3rem}
+    @media(max-width:720px){.feature{grid-template-columns:1fr}}
+
+    .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+    .cols h3{font-family:var(--disp);font-size:1.15rem;text-transform:lowercase;margin-bottom:.5rem}
+    .cols p{font-size:.92rem;color:#3f3a30}
+
+    .press{display:flex;flex-wrap:wrap;gap:.6rem}
+    .press span{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--line);padding:.4rem .8rem;color:var(--soft)}
+
+    footer{border-top:1px solid var(--line);padding:2.5rem 0}
+    footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)}
+    footer a{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="backbar"><div class="container"><span>Design 03 — Studio</span><a href="index.html">← All versions</a></div></div>
+
+  <div class="container">
+    <div class="top">
+      <span class="mark">A·V</span>
+      <nav>
+        <a href="#about">About</a><a href="#work">Work</a><a href="#cover">Cover</a><a href="#press">Press</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="hero" id="top">
+      <div class="meta"><span>Planetary Scientist</span><span>Mars · Water · Habitability</span><span>Cambridge / Zurich — 2026</span></div>
+      <h1>adomas<br /><em>valantinas</em></h1>
+      <div class="sub">
+        <p><strong>I study how Mars lost its water and whether it was ever alive.</strong> Orbital remote sensing, laboratory spectroscopy, and fieldwork in the planet's closest earthly analogs. Incoming LCLU Fellow at the University of Cambridge.</p>
+        <div class="cta">
+          <a href="#work">View selected work <span>→</span></a>
+          <a href="assets/cv.pdf">Download CV (PDF) <span>→</span></a>
+          <a href="mailto:adomas.valantinas@eaps.ethz.ch">Email me <span>→</span></a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="container">
+    <section id="about" style="border-top:1px solid var(--line)">
+      <span class="lbl">01 — About</span>
+      <div class="about-grid">
+        <h2>A planetary scientist between the lab and the field.</h2>
+        <div>
+          <p>I'm an SNSF Postdoc.Mobility Fellow at ETH Zurich, joining the University of Cambridge as an incoming Fellow of the Leverhulme Centre for Life in the Universe. My research reconstructs the geological and climatic evolution of Mars — its aqueous alteration, iron-oxide mineralogy, and the habitability of ancient crust.</p>
+          <p>PhD in Astronomy &amp; Physics (Bern); MSc Geophysics (Copenhagen); BSc (Vilnius). I contribute to ESA's CaSSIS, NASA's HiRISE, and the Perseverance rover's Mastcam-Z, and I do analog fieldwork in Iceland and the Azores.</p>
+          <p>Off the clock, I host radio shows on NTS.live and RadioVilnius.live, mixing experimental electronic music with science — and once built an exhibition, <em>Potentially Uninhabitable Worlds</em>, with the artist Matteo Taramelli.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <span class="lbl">02 — Selected Work</span>
+      <div class="index">
+        <a class="row" href="https://doi.org/10.1038/s41467-025-56970-z"><span class="n">01</span><span class="ti">ferrihydrite in martian red dust</span><span class="rt">Nature Comms · 2025</span></a>
+        <a class="row" href="https://doi.org/10.1038/s41561-024-01457-7"><span class="n">02</span><span class="ti">water frost on the tharsis volcanoes</span><span class="rt">Nature Geosci · 2024 ✦</span></a>
+        <a class="row" href="https://doi.org/10.22541/essoar.176235473.32635438/v1"><span class="n">03</span><span class="ti">plutonic magmatism in nili fossae</span><span class="rt">In review · EPSL</span></a>
+        <a class="row" href="https://doi.org/10.22541/essoar.175579625.58968122/v1"><span class="n">04</span><span class="ti">impact modeling of jezero crater rim</span><span class="rt">In review · GRL</span></a>
+        <a class="row" href="https://doi.org/10.1130/G47202.1"><span class="n">05</span><span class="ti">neotectonics on the lunar nearside</span><span class="rt">Geology · 2020</span></a>
+      </div>
+      <p style="margin-top:1.4rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em"><a href="https://tinyurl.com/5n8f6pak" style="color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:.2rem">Full index — Google Scholar →</a></p>
+    </section>
+
+    <section id="cover">
+      <span class="lbl">03 — Cover Story</span>
+      <div class="feature">
+        <img src="assets/nature-cover.jpg" alt="Nature Geoscience July 2024 cover" />
+        <div>
+          <span class="tag">Nature Geoscience — July 2024</span>
+          <h2>water frost on martian mountaintops</h2>
+          <p>My discovery of transient morning frost on the summits of the Tharsis volcanoes was chosen for the cover of <em>Nature Geoscience</em> — rewriting part of the modern Martian water cycle.</p>
+          <a class="go" href="https://doi.org/10.1038/s41561-024-01457-7">Read the paper →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <span class="lbl">04 — Themes</span>
+      <div class="cols">
+        <div><h3>water &amp; iron</h3><p>Ancient climate written into the mineralogy of Martian dust and altered crust.</p></div>
+        <div><h3>surface &amp; volatiles</h3><p>Frost, slope streaks and seasonal change in high-resolution orbital colour.</p></div>
+        <div><h3>habitability</h3><p>Deep crust at Jezero and the case for Mars Sample Return.</p></div>
+      </div>
+    </section>
+
+    <section id="press">
+      <span class="lbl">05 — Press</span>
+      <div class="press">
+        <span>Associated Press</span><span>CNN</span><span>BBC</span><span>The Guardian</span><span>New Scientist</span><span>USA Today</span><span>ABC Australia</span><span>Planetary Society</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <span class="lbl">06 — Contact</span>
+      <div class="about-grid">
+        <h2>Let's talk.</h2>
+        <div>
+          <p style="font-size:1.05rem;color:var(--ink)"><a href="mailto:adomas.valantinas@eaps.ethz.ch" style="border-bottom:1px solid var(--accent);color:var(--accent)">adomas.valantinas@eaps.ethz.ch</a></p>
+          <p style="margin-top:1rem">Dept. of Earth &amp; Planetary Sciences, ETH Zurich → Leverhulme Centre for Life in the Universe, University of Cambridge.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer><div class="container">
+    <span>© 2026 Adomas Valantinas</span>
+    <span><a href="https://tinyurl.com/5n8f6pak">Scholar</a> · <a href="https://orcid.org/">ORCID</a> · <a href="https://www.linkedin.com/">LinkedIn</a></span>
+  </div></footer>
+</body>
+</html>
