@@ -1,82 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design versions — Dr. Adomas Valantinas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: #0d0f14; color: #e9e6df; line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 4rem; }
-    header { text-align: center; margin-bottom: 3rem; }
-    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; color: #d98a5b; font-weight: 600; }
-    h1 { font-family: "Newsreader", serif; font-weight: 500; font-size: clamp(1.9rem, 5vw, 3rem); margin: .5rem 0; letter-spacing: -.01em; }
-    header p { color: #9a978f; max-width: 55ch; margin: 0 auto; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-    .card {
-      display: block; text-decoration: none; color: inherit;
-      background: #16191f; border: 1px solid #262a33; border-radius: 14px;
-      overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s;
-    }
-    .card:hover { transform: translateY(-4px); border-color: #d98a5b; box-shadow: 0 20px 40px -20px rgba(217,138,91,.35); }
-    .thumb { height: 150px; display: flex; align-items: center; justify-content: center; font-family: "Newsreader", serif; font-size: 1.5rem; position: relative; overflow: hidden; }
-    .t1 { background: linear-gradient(135deg, #f7f6f3, #e7e3db); color: #1a1c20; }
-    .t2 { background: radial-gradient(circle at 70% 40%, #3a1e12, #0a0a0f); color: #f0c9a8; }
-    .t3 { background: #efe9dd; color: #14110c; letter-spacing: -.02em; font-weight: 500; }
-    .t4 { background: linear-gradient(120deg, #1a1410, #40140a); color: #f5d9c4; }
-    .t5 { background: linear-gradient(120deg, #b4441e, #e8913f); color: #fff; font-weight: 600; }
-    .card-body { padding: 1.1rem 1.25rem 1.35rem; }
-    .card-body h2 { font-family: "Newsreader", serif; font-weight: 500; font-size: 1.25rem; margin-bottom: .3rem; }
-    .card-body .num { color: #d98a5b; font-variant-numeric: tabular-nums; font-size: .8rem; font-weight: 600; letter-spacing: .05em; }
-    .card-body p { color: #9a978f; font-size: .9rem; }
-    .note { margin-top: 3rem; padding: 1.25rem 1.5rem; background: #16191f; border: 1px solid #262a33; border-radius: 12px; color: #9a978f; font-size: .9rem; }
-    .note strong { color: #e9e6df; }
-    .assets a { color: #d98a5b; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adomas Valantinas — Planetary Scientist</title>
+<meta name="description" content="Adomas Valantinas is a planetary scientist studying water–rock interactions on early Mars — from lab geochemistry to Perseverance rover operations and orbital mineral mapping.">
+<link rel="canonical" href="https://avalantinas.com/">
+<meta property="og:title" content="Adomas Valantinas — Planetary Scientist">
+<meta property="og:description" content="Was Mars ever alive? Its minerals may remember.">
+<meta property="og:image" content="https://avalantinas.com/assets/images/og-image.jpg">
+<meta property="og:url" content="https://avalantinas.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* fonts: self-hosted, latin + latin-ext subsets */
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-400-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-400-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-500-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-500-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  --bg: #0a0908;
+  --ink: #ece7e0;
+  --ink-soft: #d8d1c8;
+  --ink-mute: #b0a89d;
+  --ink-dim: #9c948a;
+  --ink-faint: #7a7167;
+  --accent: #e0704a;
+  --accent-soft: #ffd9c4;
+  --line: #262220;
+  --line-card: #29241f;
+  --line-pill: #38322c;
+  --card: #171412;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --pad: clamp(20px, 5vw, 64px);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Space Grotesk', sans-serif; }
+img { max-width: 100%; }
+a { color: var(--accent); }
+a:hover { color: var(--accent-soft); }
+.wrap { width: 100%; max-width: 1280px; margin: 0 auto; overflow: hidden; }
+.label { font-family: var(--mono); font-size: 17px; letter-spacing: 0.08em; color: var(--accent); }
+
+/* nav */
+nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding: 28px var(--pad); }
+.brand { font-family: var(--mono); font-size: 18px; }
+.menu { display: flex; flex-wrap: wrap; gap: 12px 32px; font-family: var(--mono); font-size: 13px; }
+.menu a { color: var(--ink-dim); text-decoration: none; }
+.menu a:hover { color: var(--accent-soft); }
+
+/* hero */
+.hero { padding: 56px var(--pad) 24px; text-align: center; }
+.hero .kicker { font-family: var(--mono); font-size: 16px; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 28px; }
+.hero h1 { font-size: clamp(38px, 6.4vw, 82px); line-height: 1.05; font-weight: 500; margin: 0 auto; max-width: 17ch; letter-spacing: -0.02em; }
+.hero img { width: min(760px, 100%); height: auto; display: block; margin: 28px auto 0; }
+
+/* about */
+.about { padding: 96px var(--pad); display: grid; grid-template-columns: 160px 1fr 320px; gap: 56px; border-top: 1px solid var(--line); align-items: start; }
+.about .label { padding-top: 8px; }
+.about .lede { font-size: clamp(21px, 2.2vw, 28px); line-height: 1.5; font-weight: 400; margin: 0 0 40px; color: var(--ink-soft); }
+.posts { display: flex; flex-wrap: wrap; gap: 24px 48px; font-family: var(--mono); font-size: 13px; line-height: 2; }
+.posts .k { color: var(--ink-dim); }
+.posts .now div + div { color: var(--ink); }
+.posts .next div + div { color: var(--accent); }
+.about figure { margin: 0; }
+.about figure img { width: 320px; max-width: 100%; height: 400px; object-fit: cover; object-position: center 30%; border-radius: 14px; display: block; }
+.about figcaption { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-top: 12px; }
+
+/* approach */
+.approach { border-top: 1px solid var(--line); }
+.approach > .label { display: block; padding: 88px var(--pad) 0; }
+.approach h2 { font-size: clamp(30px, 3.5vw, 44px); font-weight: 500; letter-spacing: -0.01em; padding: 16px var(--pad) 48px; }
+.panels { display: flex; flex-direction: column; gap: 4px; }
+.panel { position: relative; height: 460px; overflow: hidden; }
+.panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.panel .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,9,8,0.25) 0%, rgba(10,9,8,0) 35%, rgba(10,9,8,0.88) 100%); }
+.panel .cap { position: absolute; left: var(--pad); right: var(--pad); bottom: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 48px; align-items: end; }
+.panel .cap h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; }
+.panel .cap p { font-size: 16px; line-height: 1.6; color: #cfc8be; margin: 0; }
+
+/* missions strip */
+.missions { display: grid; grid-template-columns: 160px repeat(3, 1fr); gap: 32px; padding: 44px var(--pad); border-bottom: 1px solid var(--line); align-items: baseline; }
+.missions div { font-family: var(--mono); font-size: 13px; line-height: 1.9; }
+.missions .sub { color: var(--ink-dim); }
+
+/* research */
+.research { padding: 88px var(--pad); }
+.research .label { display: block; margin-bottom: 36px; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.card { text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line-card); border-radius: 10px; padding: 32px; display: block; transition: border-color 0.15s; }
+.card:hover { border-color: var(--accent); color: inherit; }
+.card .meta { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 18px; font-family: var(--mono); font-size: 12.5px; }
+.card .meta .src { color: var(--ink-dim); }
+.card .meta .arrow { color: var(--accent); }
+.card .title { font-size: clamp(19px, 1.9vw, 23px); line-height: 1.35; font-weight: 500; }
+.card.all { background: transparent; border-style: dashed; border-color: var(--line-pill); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; }
+.card.all:hover { border-color: var(--accent); }
+.card.all .t { font-size: 21px; font-weight: 500; color: #cfc8be; }
+.card.all .s { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+
+/* press */
+.press { border-top: 1px solid var(--line); }
+.press > .label { display: block; padding: 88px var(--pad) 0; }
+.story { display: grid; gap: clamp(32px, 5vw, 64px); padding: 56px var(--pad) 88px; align-items: center; }
+.story.right { grid-template-columns: 1fr 520px; }
+.story.left { grid-template-columns: 520px 1fr; padding-top: 0; padding-bottom: 96px; }
+.story .date { font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim); margin-bottom: 20px; }
+.story h3 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; max-width: 16ch; }
+.story p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 24px 0 36px; max-width: 52ch; }
+.story .frame { overflow: hidden; border-radius: 10px; }
+.story .frame.shadow { box-shadow: 0 24px 56px rgba(0,0,0,0.5); }
+.story .frame img { width: 100%; display: block; }
+.story .frame img.square { aspect-ratio: 1 / 1; object-fit: cover; }
+.pills { display: flex; flex-wrap: wrap; gap: 14px; }
+.pill { display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line-pill); border-radius: 999px; padding: 14px 26px; font-family: var(--mono); font-size: 13px; color: var(--ink); text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+.pill:hover { border-color: var(--accent); color: var(--accent-soft); }
+.pill span { color: var(--accent); }
+
+/* radio */
+.radio { padding: 88px var(--pad) 96px; border-top: 1px solid var(--line); }
+.radio .label { display: block; margin-bottom: 36px; }
+.radio-grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; }
+.radio-main { background: linear-gradient(135deg, #1d1410 0%, #171412 60%); border: 1px solid #33261e; border-radius: 12px; padding: 44px; }
+.radio-main h3 { font-size: 32px; font-weight: 500; margin-bottom: 16px; letter-spacing: -0.01em; }
+.radio-main p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 0; max-width: 56ch; }
+.radio-main p b { color: var(--ink); font-weight: 400; }
+.radio-side { display: flex; flex-direction: column; gap: 20px; }
+.listen { text-decoration: none; color: inherit; flex: 1; background: var(--card); border: 1px solid var(--line-card); border-radius: 12px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: border-color 0.15s; }
+.listen:hover { border-color: var(--accent); color: inherit; }
+.listen .k { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-bottom: 8px; }
+.listen .t { font-size: 20px; font-weight: 500; }
+.listen .arrow { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+
+/* contact */
+.contact { padding: 80px var(--pad); border-top: 1px solid var(--line); }
+.contact .label { display: block; margin-bottom: 24px; }
+#reveal-email { display: inline-flex; align-items: center; gap: 14px; border: 1px solid var(--line-pill); background: none; border-radius: 999px; padding: 18px 32px; cursor: pointer; font-family: var(--mono); font-size: 15px; color: var(--ink); transition: border-color 0.15s, color 0.15s; }
+#reveal-email:hover { border-color: var(--accent); color: var(--accent-soft); }
+#reveal-email span { color: var(--accent); }
+#email-link { font-size: clamp(22px, 3vw, 36px); font-weight: 500; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+#email-link:hover { color: var(--accent-soft); }
+.contact .note { font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); margin-top: 18px; }
+
+/* responsive */
+@media (max-width: 1023px) {
+  .about { grid-template-columns: 1fr; gap: 32px; padding-top: 72px; padding-bottom: 72px; }
+  .about .label { padding-top: 0; }
+  .missions { grid-template-columns: 1fr 1fr; }
+  .story.right, .story.left { grid-template-columns: 1fr; }
+  .story.left .frame { order: 2; }
+  .story .frame { max-width: 560px; }
+  .radio-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .cards { grid-template-columns: 1fr; }
+  .missions { grid-template-columns: 1fr; gap: 20px; padding-top: 32px; padding-bottom: 32px; }
+  .panel { height: 420px; }
+  .panel .cap { grid-template-columns: 1fr; bottom: 24px; }
+  .radio-main { padding: 32px 24px; }
+  nav { justify-content: center; text-align: center; }
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <p class="eyebrow">Design preview · private</p>
-      <h1>Five directions for your website</h1>
-      <p>Click any design to open the full page. Everything runs locally on your computer — nothing is public yet. Come back here (browser Back button) to try the next one.</p>
-    </header>
+<div class="wrap">
 
-    <div class="grid">
-      <a class="card" href="v1.html">
-        <div class="thumb t1">Aa</div>
-        <div class="card-body"><span class="num">01</span><h2>Minimal Light</h2><p>Clean, airy, elegant. The timeless academic classic.</p></div>
-      </a>
-      <a class="card" href="v2.html">
-        <div class="thumb t2">Aa</div>
-        <div class="card-body"><span class="num">02</span><h2>Cosmic Dark</h2><p>Near-black with your Mars disk as a dramatic hero.</p></div>
-      </a>
-      <a class="card" href="v3.html">
-        <div class="thumb t3">studio</div>
-        <div class="card-body"><span class="num">03</span><h2>Studio</h2><p>Taramelli-inspired: huge type, gallery-index layout.</p></div>
-      </a>
-      <a class="card" href="v4.html">
-        <div class="thumb t4">Aa</div>
-        <div class="card-body"><span class="num">04</span><h2>Feature / Press</h2><p>Magazine style, led by your Nature Geoscience cover.</p></div>
-      </a>
-      <a class="card" href="v5.html">
-        <div class="thumb t5">Aa</div>
-        <div class="card-body"><span class="num">05</span><h2>Bold Modern</h2><p>Vibrant Mars-rust gradients, big type, energetic.</p></div>
-      </a>
+  <nav>
+    <div class="brand">A.VALANTINAS</div>
+    <div class="menu">
+      <a href="#about">ABOUT</a><a href="#approach">APPROACH</a><a href="#research">RESEARCH</a><a href="#press">PRESS</a><a href="#radio">RADIO DJ</a><a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker">ADOMAS VALANTINAS · PLANETARY SCIENTIST</div>
+    <h1>Was Mars ever alive? Its minerals may remember.</h1>
+    <img src="assets/images/mars-hero.webp" alt="Mars" width="1063" height="1051" fetchpriority="high">
+  </header>
+
+  <section class="about" id="about">
+    <div class="label">ABOUT</div>
+    <div>
+      <p class="lede">I study water–rock interactions on early Mars and ask whether its ancient environments could have supported life. Did life leave its mark? Answering that means working across every scale the planet offers — from a grain of dust to the whole globe.</p>
+      <div class="posts">
+        <div class="now">
+          <div class="k">NOW</div>
+          <div>ETH Zürich</div>
+          <div>SNSF Postdoc.mobility Fellow</div>
+        </div>
+        <div class="next">
+          <div class="k">INCOMING · 09/2026</div>
+          <div>Senior Fellow, LCLU</div>
+          <div>University of Cambridge</div>
+        </div>
+      </div>
+    </div>
+    <figure>
+      <img src="assets/images/portrait.webp" alt="Adomas Valantinas" width="640" height="960">
+      <figcaption>Adomas Valantinas &nbsp;·&nbsp; Photo: Mykolas Valantinas</figcaption>
+    </figure>
+  </section>
+
+  <section class="approach" id="approach">
+    <span class="label">APPROACH</span>
+    <h2>From micrometers to kilometers</h2>
+
+    <div class="panels">
+      <div class="panel">
+        <img src="assets/images/lab-bench.webp" alt="Synthesized iron mineral suspension in the laboratory" style="object-position: center 55%;" loading="lazy" decoding="async">
+        <div class="shade"></div>
+        <div class="cap">
+          <h3>Geochemistry on the bench</h3>
+          <p>I synthesize iron minerals to reconstruct environmental conditions on ancient Mars.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <img src="assets/images/perseverance.webp" alt="Perseverance rover on the Jezero crater rim" style="object-position: center 18%;" loading="lazy" decoding="async">
+        <div class="shade"></div>
+        <div class="cap">
+          <h3>Robotic field geology</h3>
+          <p>With Perseverance I investigate Martian rocks up close, searching for traces of past life.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <img src="assets/images/tgo-orbiter.webp" alt="ESA Trace Gas Orbiter above Mars" style="object-position: center 66%;" loading="lazy" decoding="async">
+        <div class="shade"></div>
+        <div class="cap">
+          <h3>Mapping habitability from orbit</h3>
+          <p>From orbit I map water-rich minerals, tracing where Mars was once habitable.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="note">
-      <p><strong>All content is real (pulled from your CV)</strong> but still a draft — tell me what to fix. One thing to confirm: I've written your Cambridge role as <em>“Incoming LCLU Fellow — Leverhulme Centre for Life in the Universe.”</em> Correct that if LCLU means something else.</p>
-      <p class="assets" style="margin-top:.6rem">Assets in use: <a href="assets/mars.png">Mars image</a> · <a href="assets/nature-cover.jpg">Nature cover</a> · <a href="assets/cv.pdf">CV (PDF)</a></p>
+    <div class="missions">
+      <span class="label" style="font-size: 17px;">MISSIONS</span>
+      <div>ESA TGO / CaSSIS<br><span class="sub">Science team · ops planner</span></div>
+      <div>NASA MRO / HiRISE<br><span class="sub">Science team</span></div>
+      <div>NASA MARS 2020<br><span class="sub">Mastcam-Z · SuperCam · PIXL</span></div>
     </div>
-  </div>
+  </section>
+
+  <section class="research" id="research">
+    <span class="label">SELECTED RESEARCH</span>
+    <div class="cards">
+      <a class="card" href="https://doi.org/10.1038/s41467-025-56970-z" target="_blank" rel="noopener">
+        <div class="meta"><span class="src">NATURE COMMUNICATIONS · 2025</span><span class="arrow">↗</span></div>
+        <div class="title">Detection of ferrihydrite in Martian red dust records ancient cold and wet conditions on Mars</div>
+      </a>
+      <a class="card" href="https://doi.org/10.1038/s41561-024-01457-7" target="_blank" rel="noopener">
+        <div class="meta"><span class="src">NATURE GEOSCIENCE · 2024 · COVER</span><span class="arrow">↗</span></div>
+        <div class="title">Evidence for transient morning water frost deposits on the Tharsis volcanoes of Mars</div>
+      </a>
+      <a class="card" href="https://essopenarchive.org/doi/full/10.22541/essoar.175579625.58968122/v2" target="_blank" rel="noopener">
+        <div class="meta"><span class="src">IN REVIEW · GRL · 2026</span><span class="arrow">↗</span></div>
+        <div class="title">Preserved altered olivine in the Jezero western rim, Mars</div>
+      </a>
+      <a class="card all" href="https://scholar.google.com/citations?user=em-A6u8AAAAJ&hl=en" target="_blank" rel="noopener">
+        <div class="t">All publications</div>
+        <div class="s">GOOGLE SCHOLAR ↗</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="press" id="press">
+    <span class="label">PRESS</span>
+
+    <div class="story right">
+      <div>
+        <div class="date">JULY 2024 · COVER STORY</div>
+        <h3>Water frost on Martian mountaintops</h3>
+        <p>I discovered morning water frost on the solar system's tallest volcanoes, where it was thought impossible, in TGO/CaSSIS images. The finding made the cover of Nature Geoscience.</p>
+        <div class="pills">
+          <a class="pill" href="https://www.cnn.com/2024/06/11/science/water-frost-mars-volcanoes-equator-scn" target="_blank" rel="noopener">CNN <span>↗</span></a>
+          <a class="pill" href="https://www.theguardian.com/science/article/2024/jun/10/early-morning-frost-spotted-mars-mountains" target="_blank" rel="noopener">THE GUARDIAN <span>↗</span></a>
+          <a class="pill" href="https://www.skyatnightmagazine.com/news/mars-volcanoes-water-frost" target="_blank" rel="noopener">BBC SKY AT NIGHT <span>↗</span></a>
+        </div>
+      </div>
+      <div class="frame shadow">
+        <img src="assets/images/nature-cover.webp" alt="Nature Geoscience July 2024 cover" width="1040" height="1382" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="story left">
+      <div class="frame">
+        <img class="square" src="assets/images/red-dust.webp" alt="Laboratory analog of Martian red dust" width="1040" height="1029" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <div class="date">FEBRUARY 2025</div>
+        <h3>Why is Mars red?</h3>
+        <p>I found that the planet's red dust owes its colour to ferrihydrite, not hematite as long assumed. Because ferrihydrite forms in cool water, it tells us early Mars was wetter, colder, and more habitable than previously thought.</p>
+        <div class="pills">
+          <a class="pill" href="https://www.nasa.gov/centers-and-facilities/goddard/nasa-new-study-on-why-mars-is-red-supports-potentially-habitable-past/" target="_blank" rel="noopener">NASA <span>↗</span></a>
+          <a class="pill" href="https://www.chemistryworld.com/news/ferrihydrite-in-martian-dust-may-explain-red-planets-colour-and-hint-at-water-rich-past/4021095.article" target="_blank" rel="noopener">ROYAL SOCIETY OF CHEMISTRY <span>↗</span></a>
+          <a class="pill" href="https://www.skyatnightmagazine.com/news/mars-red-ferrihydrite" target="_blank" rel="noopener">BBC SKY AT NIGHT <span>↗</span></a>
+          <a class="pill" href="https://www.youtube.com/watch?v=4_DsX-1-q1E" target="_blank" rel="noopener">WATCH ON YOUTUBE <span>↗</span></a>
+          <a class="pill" href="https://www.planetary.org/planetary-radio/2025-why-is-mars-red" target="_blank" rel="noopener">PLANETARY SOCIETY <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="radio" id="radio">
+    <span class="label">RADIO DJ</span>
+    <div class="radio-grid">
+      <div class="radio-main">
+        <h3>Teller of Blue</h3>
+        <p>Off the clock, I'm a DJ and radio host. As <b>Teller of Blue</b> on <b>NTS.live</b> and <b>Radio Vilnius</b>, I blend experimental electronic music with planetary science, sharing Mars with people who'd never pick up a journal.</p>
+      </div>
+      <div class="radio-side">
+        <a class="listen" href="https://www.nts.live/shows/metamorphosis-2024/episodes/metamorphosis-2024-bubble-of-life-w-teller-of-blue-21st-april-2024" target="_blank" rel="noopener">
+          <div>
+            <div class="k">LISTEN · BUBBLE OF LIFE</div>
+            <div class="t">NTS.live</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+        <a class="listen" href="https://radiovilnius.live/category/shows/teller-of-blue/" target="_blank" rel="noopener">
+          <div>
+            <div class="k">LISTEN · TELLER OF BLUE</div>
+            <div class="t">Radio Vilnius</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="label">CONTACT</span>
+    <button id="reveal-email" type="button">REVEAL EMAIL <span>→</span></button>
+    <a id="email-link" href="#" hidden></a>
+    <div class="note">Email hidden behind a click to keep scrapers away.</div>
+  </section>
+
+</div>
+
+<script>
+document.getElementById('reveal-email').addEventListener('click', function () {
+  var addr = ['adomas', '.', 'valantinas', '@', 'eaps', '.', 'ethz', '.', 'ch'].join('');
+  var link = document.getElementById('email-link');
+  link.textContent = addr;
+  link.href = 'mailto:' + addr;
+  link.hidden = false;
+  this.remove();
+});
+</script>
 </body>
 </html>
