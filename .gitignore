@@ -2,6 +2,8 @@
 old/
 *.standalone.html
 Adomas Valantinas - Website (standalone).html
+# original CV filename — published copy is cv.pdf
+valantinas_cv_*.pdf
 
 # OS noise
 Thumbs.db
