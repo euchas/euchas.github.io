@@ -51,16 +51,17 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .tabs a { color: var(--ink-dim); text-decoration: none; padding: 10px 18px; border: 1px solid var(--line-pill); border-radius: 999px; transition: color 0.15s, border-color 0.15s, background 0.15s; }
 .tabs a:hover { color: var(--accent-soft); border-color: var(--accent); }
 .tabs a.active { color: var(--bg); background: var(--accent); border-color: var(--accent); font-weight: 500; }
-.tabs a.cv-tab { color: var(--accent); border-color: var(--accent); }
-.tabs a.cv-tab:hover { color: var(--bg); background: var(--accent); }
+/* cv page */
+.cvpage { padding: 64px var(--pad) 96px; }
+.cvpage .label { display: block; margin-bottom: 28px; }
+.cvpage .btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+.cv-embed { width: 100%; height: 84vh; border: 1px solid var(--line-card); border-radius: 10px; }
+.cv-fallback { font-size: 16px; color: var(--ink-mute); padding: 24px; }
 
 /* hero (landing) */
 .hero { padding: 56px var(--pad) 24px; text-align: center; }
 .hero .kicker { font-family: var(--mono); font-size: 16px; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 28px; }
 .hero h1 { font-size: clamp(38px, 6.4vw, 82px); line-height: 1.05; font-weight: 500; margin: 0 auto; max-width: 17ch; letter-spacing: -0.02em; }
-.hero .station { font-family: var(--mono); font-size: 13.5px; line-height: 2; color: var(--ink-dim); margin-top: 26px; }
-.hero .station b { color: var(--ink); font-weight: 400; }
-.cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 26px; }
 .btn { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 13.5px; text-decoration: none; border-radius: 999px; padding: 15px 28px; transition: color 0.15s, border-color 0.15s, background 0.15s; }
 .btn.solid { background: var(--accent); border: 1px solid var(--accent); color: var(--bg); font-weight: 500; }
 .btn.solid:hover { background: var(--accent-soft); border-color: var(--accent-soft); color: var(--bg); }
