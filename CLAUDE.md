@@ -8,7 +8,9 @@ flow, Porkbun DNS records, HTTPS troubleshooting, image-optimization recipe, and
 the history of the 31 MB bundle this site was reconstructed from.
 
 Ground rules:
-- `index.html` is the single source of truth. Never regenerate from
+- The four pages (`index.html`, `research.html`, `press.html`, `radio.html`) +
+  `assets/styles.css` are the source of truth; nav and footer are duplicated in
+  all four files — keep them in sync. Never regenerate from
   `Adomas Valantinas - Website (standalone).html` (gitignored 31 MB bundle) —
   it's only kept as raw material. `old/` is also gitignored archive material.
 - Deploy = commit + push to `main`. Nothing else. Keep total site weight ~1 MB;

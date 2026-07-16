@@ -7,13 +7,24 @@ for any agent or human to pick up where things left off.
 
 ## Architecture
 
-- **Pure static site, no build step, no framework.** Everything is in `index.html`
-  (inline CSS + ~10 lines of vanilla JS for the click-to-reveal email at the bottom).
+- **Pure static site, no build step, no framework.** Four pages sharing
+  `assets/styles.css` and a common nav (tab pills, `.active` marks current page)
+  + footer — edit nav/footer in ALL four files when changing them:
+  - `index.html` — landing: hero (with station + CV buttons), about, contact
+    (click-to-reveal email JS at the bottom)
+  - `research.html` — approach panels, missions strip, selected publications
+  - `press.html` — two press stories with outlet links
+  - `radio.html` — Teller of Blue DJ page
+- `cv.pdf` — the CV, linked prominently from nav on every page (stable URL
+  avalantinas.com/cv.pdf; to update, overwrite this file). Split into pages
+  2026-07-16 after colleague feedback (CV/affiliation findability, collaborative
+  "we" wording for published work, tab navigation).
 - `assets/images/` — WebP images sized ~2× display size. `assets/fonts/` — self-hosted
   woff2 (IBM Plex Mono 400/500, Space Grotesk 400–600; latin + latin-ext subsets).
-- `favicon.svg`, `robots.txt`, `sitemap.xml`, `CNAME` (contains `avalantinas.com`,
-  required by GitHub Pages — do not delete).
-- Total site weight ≈ 1.15 MB. Keep it that way: optimize any new image before adding.
+- `favicon.svg`, `robots.txt`, `sitemap.xml` (all four pages), `CNAME` (contains
+  `avalantinas.com`, required by GitHub Pages — do not delete).
+- Total site weight ≈ 1.25 MB. Keep it that way: optimize any new image before adding.
+- Deliberately NOT included yet: GitHub profile link (user said hold off).
 
 ## Hosting & deploy
 
