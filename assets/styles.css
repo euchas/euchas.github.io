@@ -97,7 +97,7 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .panel .cap p { font-size: 16px; line-height: 1.6; color: #cfc8be; margin: 0; }
 
 /* missions strip */
-.missions { display: grid; grid-template-columns: 160px repeat(3, 1fr); gap: 32px; padding: 44px var(--pad); border-bottom: 1px solid var(--line); align-items: baseline; }
+.missions { display: grid; grid-template-columns: 160px repeat(2, 1fr); gap: 32px; padding: 44px var(--pad); border-bottom: 1px solid var(--line); align-items: baseline; }
 .missions div { font-family: var(--mono); font-size: 13px; line-height: 1.9; }
 .missions .sub { color: var(--ink-dim); }
 
