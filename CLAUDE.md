@@ -18,4 +18,10 @@ Ground rules:
 - Do not delete `CNAME`, `robots.txt`, or `sitemap.xml`.
 - Do not write the user's email address in plain text anywhere in the repo
   (anti-scraper; it's assembled by JS at the bottom of index.html).
+- Do NOT state or imply that the user is on the Perseverance / Mars 2020 team
+  (no "with the Perseverance rover team", no MARS 2020 entry in the missions
+  strip, no rover imagery). He is not affiliated and asked for it off the site
+  on 2026-09-07. Real mission affiliations: ESA TGO/CaSSIS, NASA MRO/HiRISE.
+  His CV (`cv.pdf`) does list historical Mastcam-Z work — that is accurate and
+  stays; the constraint is about the site's own copy.
 - The user is not a web developer — explain changes plainly.

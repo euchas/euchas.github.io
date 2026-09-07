@@ -1,7 +1,7 @@
 # avalantinas.com — personal website of Adomas Valantinas
 
 Single-page static site for Adomas Valantinas, planetary scientist (Mars research:
-water–rock interactions, Perseverance/TGO missions; also DJ "Teller of Blue").
+water–rock interactions, TGO/CaSSIS and MRO/HiRISE missions; also DJ "Teller of Blue").
 Live at **https://avalantinas.com**. This file is the complete project log — enough
 for any agent or human to pick up where things left off.
 
