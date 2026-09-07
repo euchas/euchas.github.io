@@ -97,6 +97,21 @@ it's assembled by the JS snippet at the bottom of `index.html`.
 - Positions: SNSF Postdoc.mobility Fellow at ETH Zürich (current); Senior Fellow,
   LCLU, University of Cambridge from 09/2026 — the "INCOMING" block in About will
   need flipping to "NOW" around then.
-- Sections: hero / About / Approach (3 photo panels + missions strip) / Selected
+- Sections: hero / About / Approach (2 photo panels + missions strip) / Selected
   Research (linked cards incl. Google Scholar) / Press (2 stories with outlet links) /
   Radio DJ (Teller of Blue: NTS.live, Radio Vilnius) / Contact.
+- **Perseverance / Mars 2020 affiliation is deliberately absent** (removed
+  2026-09-07, commit `0e5f51c`). He is not on the team and does not want it
+  claimed until that changes. Real affiliations: ESA TGO/CaSSIS, NASA MRO/HiRISE.
+  To reinstate it later, one command restores the panel, the missions entry, the
+  rover photo and the meta descriptions together:
+
+      git revert 0e5f51c && git push
+
+  To restore only some of it, take individual files from the commit before:
+
+      git checkout e5d5fed -- assets/images/perseverance.webp research.html
+
+  Note the missions grid in `assets/styles.css` is `repeat(2, 1fr)` while the
+  MARS 2020 entry is gone; it must go back to `repeat(3, 1fr)` if the entry
+  returns (the revert handles this automatically).
