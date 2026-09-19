@@ -22,6 +22,14 @@ for any agent or human to pick up where things left off.
   avalantinas.com/cv.pdf; to update, overwrite this file). Split into pages
   2026-07-16 after colleague feedback (CV/affiliation findability, collaborative
   "we" wording for published work, tab navigation).
+  The CV was rebuilt from scratch on 2026-09-19 (Cambridge/LCLU details, new
+  student-supervision section, US-style layout in Times). Its LaTeX source is in
+  `cv work/` (gitignored, local only): `cv_content.tex` holds all the text,
+  `cv_B_us_style.tex` the layout. No LaTeX is installed on this machine — compile
+  with a portable `tectonic.exe` (`gh release download -R tectonic-typesetting/tectonic`)
+  from a local temp copy, or upload both files to Overleaf; then overwrite `cv.pdf`.
+  `Other people CVs/` (gitignored) holds the community examples the layout follows —
+  never publish it.
 - `assets/images/` — WebP images sized ~2× display size. `assets/fonts/` — self-hosted
   woff2 (IBM Plex Mono 400/500, Space Grotesk 400–600; latin + latin-ext subsets).
 - `favicon.svg`, `robots.txt`, `sitemap.xml` (all six pages), `CNAME` (contains
@@ -104,8 +112,8 @@ it's assembled by the JS snippet at the bottom of `index.html`.
   CAMBRIDGE. Previous post (SNSF Postdoc.mobility, ETH Zürich) was removed from
   the site copy on 2026-09-19 — it stays only as history in the CV.
 - Contact email is the Cambridge address (switched from the ETH one 2026-09-19).
-- Still pointing at ETH, pending the user: the header of `cv.pdf` (ETH department,
-  ETH email, Swiss mobile). The user will supply the LaTeX source to rebuild it.
+- `cv.pdf` carries the Cambridge header since the 2026-09-19 rebuild; ETH appears
+  in it only as a past post (one merged SNSF Postdoc.mobility entry, Brown + ETH).
 - Sections: hero / About / Approach (2 photo panels + missions strip) / Selected
   Research (linked cards incl. Google Scholar) / Press (2 stories with outlet links) /
   Radio DJ (Teller of Blue: NTS.live, Radio Vilnius) / Contact.

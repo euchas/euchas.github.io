@@ -8,3 +8,7 @@ valantinas_cv_*.pdf
 # OS noise
 Thumbs.db
 .DS_Store
+# other people's CVs, reference material for the CV work — never publish
+Other people CVs/
+# CV drafts and working files — not part of the published site
+cv work/
