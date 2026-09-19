@@ -24,4 +24,7 @@ Ground rules:
   on 2026-09-07. Real mission affiliations: ESA TGO/CaSSIS, NASA MRO/HiRISE.
   His CV (`cv.pdf`) does list historical Mastcam-Z work — that is accurate and
   stays; the constraint is about the site's own copy.
+- Current affiliation (since 09/2026): Senior Fellow, Leverhulme Centre for Life
+  in the Universe (LCLU), University of Cambridge, in Nick Tosca's lab. Do not
+  describe him as being at ETH Zürich in site copy (past posts belong in the CV).
 - The user is not a web developer — explain changes plainly.

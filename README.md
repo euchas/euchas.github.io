@@ -94,9 +94,15 @@ it's assembled by the JS snippet at the bottom of `index.html`.
 
 ## Content notes
 
-- Positions: SNSF Postdoc.mobility Fellow at ETH Zürich (current); Senior Fellow,
-  LCLU, University of Cambridge from 09/2026 — the "INCOMING" block in About will
-  need flipping to "NOW" around then.
+- Position (since 09/2026): Senior Fellow (the first) at the Leverhulme Centre for
+  Life in the Universe (LCLU, https://www.lclu.cam.ac.uk/), University of Cambridge,
+  in Prof. Nick Tosca's group (Tosca Lab, https://www.toscalab.com/). Both are
+  linked from the About block on `index.html`; the hero kicker says UNIVERSITY OF
+  CAMBRIDGE. Previous post (SNSF Postdoc.mobility, ETH Zürich) was removed from
+  the site copy on 2026-09-19 — it stays only as history in the CV.
+- Still pointing at ETH, pending the user: the contact email assembled by the JS in
+  `index.html` (an @eaps.ethz.ch address), and the header of `cv.pdf` (ETH
+  department, ETH email, Swiss mobile). No editable CV source is in this repo.
 - Sections: hero / About / Approach (2 photo panels + missions strip) / Selected
   Research (linked cards incl. Google Scholar) / Press (2 stories with outlet links) /
   Radio DJ (Teller of Blue: NTS.live, Radio Vilnius) / Contact.
