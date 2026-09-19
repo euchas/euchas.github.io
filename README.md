@@ -28,6 +28,10 @@ for any agent or human to pick up where things left off.
   `cv_B_us_style.tex` the layout. No LaTeX is installed on this machine — compile
   with a portable `tectonic.exe` (`gh release download -R tectonic-typesetting/tectonic`)
   from a local temp copy, or upload both files to Overleaf; then overwrite `cv.pdf`.
+  After replacing `cv.pdf`, bump the `?v=...` tag on every `cv.pdf` link in the six
+  pages (browsers and the embedded viewer otherwise keep showing a cached copy).
+  Publication entries put the year at the END on purpose: browser PDF readers
+  auto-link text shaped like "Author et al. (2025)", which looked like stray links.
   `Other people CVs/` (gitignored) holds the community examples the layout follows —
   never publish it.
 - `assets/images/` — WebP images sized ~2× display size. `assets/fonts/` — self-hosted
