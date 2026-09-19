@@ -148,6 +148,15 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .listen .t { font-size: 20px; font-weight: 500; }
 .listen .arrow { font-family: var(--mono); font-size: 13px; color: var(--accent); }
 
+/* news */
+.news { padding: 64px var(--pad) 72px; }
+.news > .label { display: block; margin-bottom: 20px; }
+.news-item { display: grid; grid-template-columns: 160px 1fr; gap: 16px 56px; padding: 44px 0; border-top: 1px solid var(--line); }
+.news-item .date { font-family: var(--mono); font-size: 13px; line-height: 1.9; color: var(--ink-dim); padding-top: 4px; }
+.news-item .tag { color: var(--accent); }
+.news-item h2 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; max-width: 30ch; }
+.news-item p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 16px 0 28px; max-width: 62ch; }
+
 /* contact */
 .contact { padding: 80px var(--pad); border-top: 1px solid var(--line); }
 .contact .label { display: block; margin-bottom: 24px; }
@@ -176,6 +185,7 @@ footer a:hover { color: var(--accent-soft); }
 }
 @media (max-width: 767px) {
   .cards { grid-template-columns: 1fr; }
+  .news-item { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
   .missions { grid-template-columns: 1fr; gap: 20px; padding-top: 32px; padding-bottom: 32px; }
   .panel { height: 420px; }
   .panel .cap { grid-template-columns: 1fr; bottom: 24px; }

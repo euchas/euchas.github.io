@@ -7,21 +7,24 @@ for any agent or human to pick up where things left off.
 
 ## Architecture
 
-- **Pure static site, no build step, no framework.** Four pages sharing
+- **Pure static site, no build step, no framework.** Six pages sharing
   `assets/styles.css` and a common nav (tab pills, `.active` marks current page)
-  + footer — edit nav/footer in ALL four files when changing them:
-  - `index.html` — landing: hero (with station + CV buttons), about, contact
-    (click-to-reveal email JS at the bottom)
+  + footer — edit nav/footer in ALL six files when changing them:
+  - `index.html` — landing: hero, about (current post + LCLU / Tosca Lab links),
+    contact (click-to-reveal email JS at the bottom)
+  - `news.html` — dated news items, newest first. To add one, copy an
+    `<article class="news-item">` block to the top and move the `LATEST` tag.
   - `research.html` — approach panels, missions strip, selected publications
   - `press.html` — two press stories with outlet links
   - `radio.html` — Teller of Blue DJ page
+  - `cv.html` — embeds `cv.pdf` with a download button
 - `cv.pdf` — the CV, linked prominently from nav on every page (stable URL
   avalantinas.com/cv.pdf; to update, overwrite this file). Split into pages
   2026-07-16 after colleague feedback (CV/affiliation findability, collaborative
   "we" wording for published work, tab navigation).
 - `assets/images/` — WebP images sized ~2× display size. `assets/fonts/` — self-hosted
   woff2 (IBM Plex Mono 400/500, Space Grotesk 400–600; latin + latin-ext subsets).
-- `favicon.svg`, `robots.txt`, `sitemap.xml` (all four pages), `CNAME` (contains
+- `favicon.svg`, `robots.txt`, `sitemap.xml` (all six pages), `CNAME` (contains
   `avalantinas.com`, required by GitHub Pages — do not delete).
 - Total site weight ≈ 1.25 MB. Keep it that way: optimize any new image before adding.
 - Deliberately NOT included yet: GitHub profile link (user said hold off).
@@ -100,9 +103,9 @@ it's assembled by the JS snippet at the bottom of `index.html`.
   linked from the About block on `index.html`; the hero kicker says UNIVERSITY OF
   CAMBRIDGE. Previous post (SNSF Postdoc.mobility, ETH Zürich) was removed from
   the site copy on 2026-09-19 — it stays only as history in the CV.
-- Still pointing at ETH, pending the user: the contact email assembled by the JS in
-  `index.html` (an @eaps.ethz.ch address), and the header of `cv.pdf` (ETH
-  department, ETH email, Swiss mobile). No editable CV source is in this repo.
+- Contact email is the Cambridge address (switched from the ETH one 2026-09-19).
+- Still pointing at ETH, pending the user: the header of `cv.pdf` (ETH department,
+  ETH email, Swiss mobile). The user will supply the LaTeX source to rebuild it.
 - Sections: hero / About / Approach (2 photo panels + missions strip) / Selected
   Research (linked cards incl. Google Scholar) / Press (2 stories with outlet links) /
   Radio DJ (Teller of Blue: NTS.live, Radio Vilnius) / Contact.
