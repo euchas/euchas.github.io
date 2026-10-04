@@ -77,6 +77,8 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .about { padding: 88px var(--pad); display: grid; grid-template-columns: 160px 1fr 320px; gap: 56px; border-top: 1px solid var(--line); align-items: start; }
 .about .label { padding-top: 8px; }
 .about .lede { font-size: clamp(21px, 2.2vw, 28px); line-height: 1.5; font-weight: 400; margin: 0 0 40px; color: var(--ink-soft); }
+.about .lede a { text-decoration: none; border-bottom: 1px solid rgba(224, 112, 74, 0.45); }
+.about .lede a:hover { border-bottom-color: var(--accent-soft); }
 .posts { display: flex; flex-wrap: wrap; gap: 24px 48px; font-family: var(--mono); font-size: 13px; line-height: 2; }
 .posts .k { color: var(--ink-dim); }
 .posts .now div + div { color: var(--ink); }
@@ -117,18 +119,21 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .card.all:hover { border-color: var(--accent); }
 .card.all .t { font-size: 21px; font-weight: 500; color: #cfc8be; }
 .card.all .s { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.cards.all-row { grid-template-columns: 1fr; margin-top: 72px; }
 
-/* press stories */
-.story { display: grid; gap: clamp(32px, 5vw, 64px); padding: 56px var(--pad) 88px; align-items: center; }
-.story.right { grid-template-columns: 1fr 520px; }
-.story.left { grid-template-columns: 520px 1fr; padding-top: 0; padding-bottom: 96px; }
-.story .date { font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim); margin-bottom: 20px; }
-.story h2 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; max-width: 16ch; }
-.story p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 24px 0 36px; max-width: 52ch; }
-.story .frame { overflow: hidden; border-radius: 10px; }
-.story .frame.shadow { box-shadow: 0 24px 56px rgba(0,0,0,0.5); }
-.story .frame img { width: 100%; display: block; }
-.story .frame img.square { aspect-ratio: 1 / 1; object-fit: cover; }
+/* research: jump links + one block per world (Mars, Phobos & Deimos, Moon) */
+.page-head .jump { margin-top: 28px; }
+.world + .world { margin-top: 72px; }
+.world > h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 12px; }
+.world-intro { font-size: 17px; line-height: 1.65; color: var(--ink-mute); max-width: 62ch; margin-bottom: 28px; }
+.feature { border-top: 1px solid var(--line); padding: 36px 0 44px; }
+.feature .meta { font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim); margin-bottom: 16px; }
+.feature h3 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; }
+.feature .paper { font-size: 15px; line-height: 1.5; color: var(--ink-dim); margin-top: 10px; max-width: 70ch; }
+.feature p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 18px 0 28px; max-width: 62ch; }
+.pill.primary { border-color: var(--accent); }
+
+/* pills (links shown as rounded buttons) */
 .pills { display: flex; flex-wrap: wrap; gap: 14px; }
 .pill { display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line-pill); border-radius: 999px; padding: 14px 26px; font-family: var(--mono); font-size: 13px; color: var(--ink); text-decoration: none; transition: border-color 0.15s, color 0.15s; }
 .pill:hover { border-color: var(--accent); color: var(--accent-soft); }
@@ -147,6 +152,15 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .listen .k { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-bottom: 8px; }
 .listen .t { font-size: 20px; font-weight: 500; }
 .listen .arrow { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.record { display: grid; grid-template-columns: 1fr 1fr; margin-top: 20px; background: var(--card); border: 1px solid var(--line-card); border-radius: 12px; overflow: hidden; }
+.record-photo { display: block; }
+.record-photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.15s; }
+.record-photo:hover img { opacity: 0.88; }
+.record-text { padding: 44px; align-self: center; }
+.record .k { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-bottom: 14px; }
+.record h3 { font-size: clamp(24px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 14px; }
+.record p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 0 0 28px; max-width: 46ch; }
+.record .credit { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); margin-top: 24px; }
 
 /* news */
 .news { padding: 64px var(--pad) 72px; }
@@ -156,6 +170,12 @@ nav { display: flex; justify-content: space-between; align-items: center; gap: 1
 .news-item .tag { color: var(--accent); }
 .news-item h2 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; max-width: 30ch; }
 .news-item p { font-size: 17px; line-height: 1.65; color: var(--ink-mute); margin: 16px 0 28px; max-width: 62ch; }
+.news-item.has-media { grid-template-columns: 160px 1fr 240px; }
+.news-item .media { margin: 0; align-self: start; }
+.news-item .media img { display: block; width: 100%; border-radius: 10px; }
+.logo-tile { aspect-ratio: 4 / 3; background: #f0eee6; color: #141413; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; }
+.logo-tile svg { display: block; width: 82%; height: auto; }
+.logo-tile span { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.12em; color: #5e5d59; }
 
 /* contact */
 .contact { padding: 80px var(--pad); border-top: 1px solid var(--line); }
@@ -178,14 +198,20 @@ footer a:hover { color: var(--accent-soft); }
   .about { grid-template-columns: 1fr; gap: 32px; padding-top: 64px; padding-bottom: 64px; }
   .about .label { padding-top: 0; }
   .missions { grid-template-columns: 1fr 1fr; }
-  .story.right, .story.left { grid-template-columns: 1fr; }
-  .story.left .frame { order: 2; }
-  .story .frame { max-width: 560px; }
   .radio-grid { grid-template-columns: 1fr; }
+  .record { grid-template-columns: 1fr; }
+  .record-text { padding: 32px 28px; }
+  .news-item.has-media { grid-template-columns: 160px 1fr; }
+  .news-item.has-media .media { grid-column: 2; max-width: 300px; }
 }
 @media (max-width: 767px) {
   .cards { grid-template-columns: 1fr; }
   .news-item { grid-template-columns: 1fr; gap: 12px; padding: 36px 0; }
+  .news-item.has-media { grid-template-columns: 1fr; }
+  .news-item.has-media .media { grid-column: auto; order: 1; margin: 8px 0 4px; }
+  .news-item.has-media .body { order: 2; }
+  .world + .world { margin-top: 56px; }
+  .cards.all-row { margin-top: 56px; }
   .missions { grid-template-columns: 1fr; gap: 20px; padding-top: 32px; padding-bottom: 32px; }
   .panel { height: 420px; }
   .panel .cap { grid-template-columns: 1fr; bottom: 24px; }
