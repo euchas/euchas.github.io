@@ -5,6 +5,10 @@ Adomas Valantinas - Website (standalone).html
 # original CV filename — published copy is cv.pdf
 valantinas_cv_*.pdf
 
+# private project notes — kept locally, never published
+CLAUDE.md
+README.md
+
 # OS noise
 Thumbs.db
 .DS_Store
